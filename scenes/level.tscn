@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://j842udsmfccg"]
+
+[ext_resource type="PackedScene" uid="uid://c0ghlhy5kcgew" path="res://scenes/ui.tscn" id="1_bubbk"]
+[ext_resource type="PackedScene" uid="uid://ogvgxoe14e6d" path="res://scenes/player.tscn" id="1_js3dc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1qaq"]
+size = Vector3(0.993774, 0.993286, 1.99785)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hacsy"]
+
+[node name="level" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("1_bubbk")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="floor" type="StaticBody3D" parent="."]
+transform = Transform3D(14.4258, 0, 0, 0, 0.174495, 0, 0, 0, 14.0093, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(3.44017, 0, 0, 0, 3.44017, 0, 0, 0, 3.44017, 0.00311279, -0.00335693, 0.0209391)
+shape = SubResource("BoxShape3D_g1qaq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(3.42029, 0, 0, 0, 1, 0, 0, 0, 6.95383, 0, 0, 0)
+mesh = SubResource("BoxMesh_hacsy")
+
+[node name="wall" type="StaticBody3D" parent="."]
+transform = Transform3D(48.4771, 0, 0, 0, 5.31006, 0, 0, 0, 0.278393, 0.285066, 2.64283, 48.445)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00311279, -0.00335693, 0.00383949)
+shape = SubResource("BoxShape3D_g1qaq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
+mesh = SubResource("BoxMesh_hacsy")
+
+[node name="wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.143454, 0, -0.278382, 0, 5.31006, 0, 16.0843, 0, 0.00248285, -6.52331, 2.64283, 40.6383)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00311279, -0.00335693, 0.00383949)
+shape = SubResource("BoxShape3D_g1qaq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall2"]
+mesh = SubResource("BoxMesh_hacsy")
+
+[node name="wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.97201, 0, 0.00500182, 0, 5.31006, 0, -0.0882625, 0, -0.281763, 4.6936, 2.64283, 32.3601)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00311279, -0.00335693, 0.00383949)
+shape = SubResource("BoxShape3D_g1qaq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall3"]
+mesh = SubResource("BoxMesh_hacsy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="wall3"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 0.999999, 0, 0, 0, 0.999999, 1.77819, 0.00186288, -0.723122)
+mesh = SubResource("BoxMesh_hacsy")
+
+[node name="wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(0.0903952, 0, 0.278389, 0, 5.31006, 0, -16.0847, 0, 0.00156454, 7.12243, 2.6206, 40.4771)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00311279, -0.00335693, 0.00383949)
+shape = SubResource("BoxShape3D_g1qaq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall4"]
+mesh = SubResource("BoxMesh_hacsy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.494986, -0.846666, -0.195311, -0.388026, 0.014269, 0.921538, -0.777448, 0.531934, -0.335591, 0, 7.58489, -10.8258)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_js3dc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131997, 3.02144, 43.0323)
